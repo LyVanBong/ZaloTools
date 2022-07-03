@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using ZaloTools.ViewModels;
 
 namespace ZaloTools.Views
 {
@@ -10,6 +11,15 @@ namespace ZaloTools.Views
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            var vm = DataContext as MainWindowViewModel;
+            if (vm != null)
+            {
+                vm.DashboardCommand.Execute(null);
+            }
         }
     }
 }

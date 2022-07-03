@@ -13,10 +13,9 @@ namespace ZaloTools
         {
             return Container.Resolve<MainWindow>();
         }
-
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterForNavigation<DashboardView>();
         }
     }
 }
