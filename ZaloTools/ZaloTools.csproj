@@ -8,6 +8,8 @@
   <ItemGroup>
     <None Remove="Resources\Images\icon.ico" />
     <None Remove="Resources\Images\ic_add_friend.png" />
+    <None Remove="Resources\Images\ic_arrow_down.png" />
+    <None Remove="Resources\Images\ic_arrow_up.png" />
     <None Remove="Resources\Images\ic_dashboard.png" />
     <None Remove="Resources\Images\ic_info.png" />
     <None Remove="Resources\Images\ic_login.png" />
@@ -25,6 +27,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Images\ic_add_friend.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\ic_arrow_down.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\ic_arrow_up.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Images\ic_dashboard.png">

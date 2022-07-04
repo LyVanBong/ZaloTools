@@ -18,7 +18,7 @@ namespace ZaloTools.Views
             var vm = DataContext as MainWindowViewModel;
             if (vm != null)
             {
-                vm.DashboardCommand.Execute(null);
+                vm.CreateDefaultView();
             }
         }
     }

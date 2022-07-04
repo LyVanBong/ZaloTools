@@ -7,8 +7,8 @@
     prism:ViewModelLocator.AutoWireViewModel="True"
     Background="#1867BE"
     Icon="../Resources/Images/icon.ico"
-    Topmost="True"
     Loaded="MainWindow_OnLoaded"
+    Topmost="True"
     WindowStartupLocation="CenterScreen"
     WindowState="Maximized">
     <Grid>
@@ -50,7 +50,9 @@
                     <RowDefinition Height="50" />
                     <RowDefinition Height="50" />
                     <RowDefinition Height="50" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="50" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="50" />
                     <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
@@ -64,12 +66,23 @@
                     HorizontalContentAlignment="Left"
                     Background="Transparent"
                     BorderBrush="Transparent"
-                    Command="{Binding DashboardCommand}">
+                    Command="{Binding DashboardCommand}"
+                    CommandParameter="0">
                     <StackPanel Orientation="Horizontal">
-                        <Border
-                            Width="10"
-                            Margin="0,3"
-                            Background="#fff" />
+                        <Border Width="10" Margin="0,3">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding MenuApp.Dashboard}" Value="True">
+                                            <Setter Property="Background" Value="#fff" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding MenuApp.Dashboard}" Value="False">
+                                            <Setter Property="Background" Value="Transparent" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
                         <Image Margin="5" Source="../Resources/Images/ic_dashboard.png" />
                         <Label
                             VerticalAlignment="Center"
@@ -88,12 +101,24 @@
                     HorizontalAlignment="Stretch"
                     HorizontalContentAlignment="Left"
                     Background="Transparent"
-                    BorderBrush="Transparent">
+                    BorderBrush="Transparent"
+                    Command="{Binding DashboardCommand}"
+                    CommandParameter="1">
                     <StackPanel Orientation="Horizontal">
-                        <Border
-                            Width="10"
-                            Margin="0,3"
-                            Background="#fff" />
+                        <Border Width="10" Margin="0,3">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding MenuApp.Acount}" Value="True">
+                                            <Setter Property="Background" Value="#fff" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding MenuApp.Acount}" Value="False">
+                                            <Setter Property="Background" Value="Transparent" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
                         <Image Margin="5" Source="../Resources/Images/ic_user.png" />
                         <Label
                             VerticalAlignment="Center"
@@ -113,12 +138,24 @@
                     HorizontalAlignment="Stretch"
                     HorizontalContentAlignment="Left"
                     Background="Transparent"
-                    BorderBrush="Transparent">
+                    BorderBrush="Transparent"
+                    Command="{Binding DashboardCommand}"
+                    CommandParameter="2">
                     <StackPanel Orientation="Horizontal">
-                        <Border
-                            Width="10"
-                            Margin="0,3"
-                            Background="#fff" />
+                        <Border Width="10" Margin="0,3">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding MenuApp.Message}" Value="True">
+                                            <Setter Property="Background" Value="#fff" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding MenuApp.Message}" Value="False">
+                                            <Setter Property="Background" Value="Transparent" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
                         <Image Margin="5" Source="../Resources/Images/ic_message.png" />
                         <Label
                             VerticalAlignment="Center"
@@ -126,34 +163,136 @@
                             FontSize="20"
                             FontWeight="Bold"
                             Foreground="#fff" />
+                        <Image Margin="15">
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding MenuApp.Message}" Value="True">
+                                            <Setter Property="Source" Value="../Resources/Images/ic_arrow_up.png" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding MenuApp.Message}" Value="False">
+                                            <Setter Property="Source" Value="../Resources/Images/ic_arrow_down.png" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
                     </StackPanel>
                 </Button>
-
+                <StackPanel Grid.Row="3" Orientation="Vertical">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding MenuApp.Message}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding MenuApp.Message}" Value="False">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <Button
+                        Height="50"
+                        Margin="10,0,0,0"
+                        Padding="0"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Left"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Command="{Binding DashboardCommand}"
+                        CommandParameter="3">
+                        <StackPanel Orientation="Horizontal">
+                            <Border Width="10" Margin="0,3">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding MenuApp.MessageFriend}" Value="True">
+                                                <Setter Property="Background" Value="#fff" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding MenuApp.MessageFriend}" Value="False">
+                                                <Setter Property="Background" Value="Transparent" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                            </Border>
+                            <Label
+                                VerticalAlignment="Center"
+                                Content="Bạn bè"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="#fff" />
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        Height="50"
+                        Margin="10,0,0,0"
+                        Padding="0"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Left"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Command="{Binding DashboardCommand}"
+                        CommandParameter="4">
+                        <StackPanel Orientation="Horizontal">
+                            <Border Width="10" Margin="0,3">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding MenuApp.MessagePhoneNumber}" Value="True">
+                                                <Setter Property="Background" Value="#fff" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding MenuApp.MessagePhoneNumber}" Value="False">
+                                                <Setter Property="Background" Value="Transparent" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                            </Border>
+                            <Label
+                                VerticalAlignment="Center"
+                                Content="Số điện thoại"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="#fff" />
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        Height="50"
+                        Margin="10,0,0,0"
+                        Padding="0"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Left"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Command="{Binding DashboardCommand}"
+                        CommandParameter="5">
+                        <StackPanel Orientation="Horizontal">
+                            <Border Width="10" Margin="0,3">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding MenuApp.MessageGroupChat}" Value="True">
+                                                <Setter Property="Background" Value="#fff" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding MenuApp.MessageGroupChat}" Value="False">
+                                                <Setter Property="Background" Value="Transparent" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                            </Border>
+                            <Label
+                                VerticalAlignment="Center"
+                                Content="Nhóm"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="#fff" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
                 <!--  Add friend  -->
-                <Button
-                    Grid.Row="3"
-                    Margin="0"
-                    Padding="0"
-                    HorizontalAlignment="Stretch"
-                    HorizontalContentAlignment="Left"
-                    Background="Transparent"
-                    BorderBrush="Transparent">
-                    <StackPanel Orientation="Horizontal">
-                        <Border
-                            Width="10"
-                            Margin="0,3"
-                            Background="#fff" />
-                        <Image Margin="5" Source="../Resources/Images/ic_add_friend.png" />
-                        <Label
-                            VerticalAlignment="Center"
-                            Content="Kết bạn"
-                            FontSize="20"
-                            FontWeight="Bold"
-                            Foreground="#fff" />
-                    </StackPanel>
-                </Button>
-
-                <!--  Quét số điện thoại  -->
                 <Button
                     Grid.Row="4"
                     Margin="0"
@@ -161,12 +300,187 @@
                     HorizontalAlignment="Stretch"
                     HorizontalContentAlignment="Left"
                     Background="Transparent"
-                    BorderBrush="Transparent">
+                    BorderBrush="Transparent"
+                    Command="{Binding DashboardCommand}"
+                    CommandParameter="6">
                     <StackPanel Orientation="Horizontal">
-                        <Border
-                            Width="10"
-                            Margin="0,3"
-                            Background="#fff" />
+                        <Border Width="10" Margin="0,3">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding MenuApp.AddFriend}" Value="True">
+                                            <Setter Property="Background" Value="#fff" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding MenuApp.AddFriend}" Value="False">
+                                            <Setter Property="Background" Value="Transparent" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
+                        <Image Margin="5" Source="../Resources/Images/ic_add_friend.png" />
+                        <Label
+                            VerticalAlignment="Center"
+                            Content="Kết bạn"
+                            FontSize="20"
+                            FontWeight="Bold"
+                            Foreground="#fff" />
+                        <Image Margin="15">
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding MenuApp.AddFriend}" Value="True">
+                                            <Setter Property="Source" Value="../Resources/Images/ic_arrow_up.png" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding MenuApp.AddFriend}" Value="False">
+                                            <Setter Property="Source" Value="../Resources/Images/ic_arrow_down.png" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </StackPanel>
+                </Button>
+                <StackPanel Grid.Row="5" Orientation="Vertical">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding MenuApp.AddFriend}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding MenuApp.AddFriend}" Value="False">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <Button
+                        Height="50"
+                        Margin="10,0,0,0"
+                        Padding="0"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Left"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Command="{Binding DashboardCommand}"
+                        CommandParameter="7">
+                        <StackPanel Orientation="Horizontal">
+                            <Border Width="10" Margin="0,3">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding MenuApp.AddFriendAcceptAddFriend}" Value="True">
+                                                <Setter Property="Background" Value="#fff" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding MenuApp.AddFriendAcceptAddFriend}" Value="False">
+                                                <Setter Property="Background" Value="Transparent" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                            </Border>
+                            <Label
+                                VerticalAlignment="Center"
+                                Content="Chấp nhận kết bạn"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="#fff" />
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        Height="50"
+                        Margin="10,0,0,0"
+                        Padding="0"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Left"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Command="{Binding DashboardCommand}"
+                        CommandParameter="8">
+                        <StackPanel Orientation="Horizontal">
+                            <Border Width="10" Margin="0,3">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding MenuApp.AddFriendSuggestionsAddFriend}" Value="True">
+                                                <Setter Property="Background" Value="#fff" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding MenuApp.AddFriendSuggestionsAddFriend}" Value="False">
+                                                <Setter Property="Background" Value="Transparent" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                            </Border>
+                            <Label
+                                VerticalAlignment="Center"
+                                Content="Theo gợi ý"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="#fff" />
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        Height="50"
+                        Margin="10,0,0,0"
+                        Padding="0"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Left"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Command="{Binding DashboardCommand}"
+                        CommandParameter="9">
+                        <StackPanel Orientation="Horizontal">
+                            <Border Width="10" Margin="0,3">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding MenuApp.AddFriendPhoneNumber}" Value="True">
+                                                <Setter Property="Background" Value="#fff" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding MenuApp.AddFriendPhoneNumber}" Value="False">
+                                                <Setter Property="Background" Value="Transparent" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                            </Border>
+                            <Label
+                                VerticalAlignment="Center"
+                                Content="Số điện thoại"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="#fff" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <!--  Quét số điện thoại  -->
+                <Button
+                    Grid.Row="6"
+                    Margin="0"
+                    Padding="0"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Left"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Command="{Binding DashboardCommand}"
+                    CommandParameter="10">
+                    <StackPanel Orientation="Horizontal">
+                        <Border Width="10" Margin="0,3">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding MenuApp.PhoneNumber}" Value="True">
+                                            <Setter Property="Background" Value="#fff" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding MenuApp.PhoneNumber}" Value="False">
+                                            <Setter Property="Background" Value="Transparent" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
                         <Image Margin="5" Source="../Resources/Images/ic_number_phone.png" />
                         <Label
                             VerticalAlignment="Center"
@@ -179,18 +493,30 @@
 
                 <!--  Thông tin ứng dụng  -->
                 <Button
-                    Grid.Row="5"
+                    Grid.Row="7"
                     Margin="0"
                     Padding="0"
                     HorizontalAlignment="Stretch"
                     HorizontalContentAlignment="Left"
                     Background="Transparent"
-                    BorderBrush="Transparent">
+                    BorderBrush="Transparent"
+                    Command="{Binding DashboardCommand}"
+                    CommandParameter="11">
                     <StackPanel Orientation="Horizontal">
-                        <Border
-                            Width="10"
-                            Margin="0,3"
-                            Background="#fff" />
+                        <Border Width="10" Margin="0,3">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding MenuApp.About}" Value="True">
+                                            <Setter Property="Background" Value="#fff" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding MenuApp.About}" Value="False">
+                                            <Setter Property="Background" Value="Transparent" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
                         <Image Margin="5" Source="../Resources/Images/ic_info.png" />
                         <Label
                             VerticalAlignment="Center"
@@ -210,7 +536,8 @@
             Padding="0"
             HorizontalAlignment="Stretch"
             Background="Transparent"
-            BorderBrush="Transparent">
+            BorderBrush="Transparent"
+            Command="{Binding DashboardCommand}">
             <StackPanel Orientation="Horizontal">
                 <Image Margin="5" Source="../Resources/Images/ic_login.png" />
                 <Label
