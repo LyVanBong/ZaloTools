@@ -45,7 +45,10 @@ namespace ZaloTools.ViewModels
                     MenuApp.SelectButton(2);
                     break;
                 case "2":
-                    MenuApp.SelectButtonMessage();
+                    if (MenuApp.Message)
+                        MenuApp.SelectButtonMessage(-1);
+                    else
+                        MenuApp.SelectButtonMessage();
                     break;
                 case "3":
                     MenuApp.SelectButtonMessage(1);
@@ -57,7 +60,9 @@ namespace ZaloTools.ViewModels
                     MenuApp.SelectButtonMessage(3);
                     break;
                 case "6":
-                    MenuApp.SelectButtonAddFriend();
+                    if (MenuApp.AddFriend) MenuApp.SelectButtonAddFriend(-1);
+                    else
+                        MenuApp.SelectButtonAddFriend();
                     break;
                 case "7":
                     MenuApp.SelectButtonAddFriend(1);
