@@ -8,6 +8,7 @@
     Background="#1867BE"
     Icon="../Resources/Images/icon.ico"
     Loaded="MainWindow_OnLoaded"
+    ResizeMode="CanResizeWithGrip"
     Topmost="True"
     WindowStartupLocation="CenterScreen"
     WindowState="Maximized">

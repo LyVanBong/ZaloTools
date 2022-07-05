@@ -10,7 +10,7 @@ namespace ZaloTools.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
-        private string _title = "Zalo Marketing";
+        private string _title = "Zalo Marketing - Phần mềm hỗ trợ gửi tin nhắn zalo marketing online";
         private IRegionManager _regionManager;
         private MenuApp _menuApp = new MenuApp();
         private string _regionNames = "ContentRegion";
