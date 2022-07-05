@@ -3,11 +3,11 @@
 namespace ZaloTools.Views
 {
     /// <summary>
-    /// Interaction logic for DashboardView
+    /// Interaction logic for ScanNumberPhoneView
     /// </summary>
-    public partial class DashboardView : UserControl
+    public partial class ScanNumberPhoneView : UserControl
     {
-        public DashboardView()
+        public ScanNumberPhoneView()
         {
             InitializeComponent();
         }

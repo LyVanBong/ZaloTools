@@ -22,7 +22,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-  
+
         <ContentControl
             Grid.Row="0"
             Grid.RowSpan="4"
@@ -521,7 +521,6 @@
                             Foreground="#fff" />
                     </StackPanel>
                 </Button>
-
             </Grid>
         </ScrollViewer>
         <Button

@@ -1,10 +1,10 @@
 ﻿<UserControl
-    x:Class="ZaloTools.Views.DashboardView"
+    x:Class="ZaloTools.Views.AcountView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:prism="http://prismlibrary.com/"
     prism:ViewModelLocator.AutoWireViewModel="True"
-    Background="#fff">
+    Background="Red">
     <Grid>
         <Label Content="test" />
     </Grid>

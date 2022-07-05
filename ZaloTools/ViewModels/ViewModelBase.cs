@@ -7,12 +7,10 @@ namespace ZaloTools.ViewModels
     {
         protected ViewModelBase()
         {
-
         }
 
         public virtual void Destroy()
         {
-
         }
     }
 }

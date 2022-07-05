@@ -40,6 +40,7 @@ public class MenuApp : BindableBase
         get => _addFriendPhoneNumber;
         set => SetProperty(ref _addFriendPhoneNumber, value);
     }
+
     public bool Message
     {
         get => _message;
@@ -63,6 +64,7 @@ public class MenuApp : BindableBase
         get => _messageGroupChat;
         set => SetProperty(ref _messageGroupChat, value);
     }
+
     public bool Dashboard
     {
         get => _dashboard;
@@ -125,8 +127,8 @@ public class MenuApp : BindableBase
         if (key == 2) AddFriendSuggestionsAddFriend = true;
         if (key == 3) AddFriendPhoneNumber = true;
         if (key == -1) AddFriend = false;
-
     }
+
     public void SelectButtonMessage(int key = 0)
     {
         Message = true;

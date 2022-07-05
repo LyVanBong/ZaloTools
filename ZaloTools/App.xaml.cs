@@ -1,5 +1,6 @@
 ﻿using Prism.Ioc;
 using System.Windows;
+using ZaloTools.ViewModels;
 using ZaloTools.Views;
 
 namespace ZaloTools
@@ -13,9 +14,13 @@ namespace ZaloTools
         {
             return Container.Resolve<MainWindow>();
         }
+
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<DashboardView>();
+            containerRegistry.RegisterForNavigation<DashboardView, DashboardViewModel>();
+            containerRegistry.RegisterForNavigation<AcountView, AcountViewModel>();
+            containerRegistry.RegisterForNavigation<AboutView, AboutViewModel>();
+            containerRegistry.RegisterForNavigation<ScanNumberPhoneView, ScanNumberPhoneViewModel>();
         }
     }
 }

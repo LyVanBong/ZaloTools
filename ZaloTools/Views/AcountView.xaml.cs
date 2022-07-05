@@ -3,11 +3,11 @@
 namespace ZaloTools.Views
 {
     /// <summary>
-    /// Interaction logic for DashboardView
+    /// Interaction logic for AcountView
     /// </summary>
-    public partial class DashboardView : UserControl
+    public partial class AcountView : UserControl
     {
-        public DashboardView()
+        public AcountView()
         {
             InitializeComponent();
         }

@@ -1,5 +1,5 @@
-﻿using System;
-using Prism.Regions;
+﻿using Prism.Regions;
+using System;
 
 namespace ZaloTools.ViewModels
 {
@@ -24,12 +24,10 @@ namespace ZaloTools.ViewModels
 
         public virtual void OnNavigatedFrom(NavigationContext navigationContext)
         {
-
         }
 
         public virtual void OnNavigatedTo(NavigationContext navigationContext)
         {
-
         }
     }
 }

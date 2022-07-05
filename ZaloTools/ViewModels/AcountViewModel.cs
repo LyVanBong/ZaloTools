@@ -2,9 +2,9 @@
 
 namespace ZaloTools.ViewModels
 {
-    public class DashboardViewModel : BindableBase
+    public class AcountViewModel : BindableBase
     {
-        public DashboardViewModel()
+        public AcountViewModel()
         {
         }
     }
