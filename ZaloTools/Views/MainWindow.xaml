@@ -9,7 +9,7 @@
     Icon="../Resources/Images/icon.ico"
     Loaded="MainWindow_OnLoaded"
     ResizeMode="CanResizeWithGrip"
-    Topmost="True"
+    Topmost="False"
     WindowStartupLocation="CenterScreen"
     WindowState="Maximized">
     <Grid>

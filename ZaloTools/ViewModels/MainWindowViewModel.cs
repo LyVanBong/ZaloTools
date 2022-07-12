@@ -1,9 +1,14 @@
-﻿using Prism.Commands;
+﻿using System;
+using System.IO;
+using System.Threading.Tasks;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
 using System.Windows;
 using System.Windows.Input;
+using Downloader;
 using ZaloTools.Models;
+using ZaloTools.Services;
 using ZaloTools.Views;
 
 namespace ZaloTools.ViewModels
@@ -14,6 +19,11 @@ namespace ZaloTools.ViewModels
         private IRegionManager _regionManager;
         private MenuApp _menuApp = new MenuApp();
         private string _regionNames = "ContentRegion";
+        private readonly ICacheMemoryService _cacheMemoryService;
+        private string _pathChromeProfileDefault = Directory.GetCurrentDirectory() + "\\ChromeProfile";
+
+        private string _profileChromeDefault =
+            "https://drive.google.com/u/2/uc?id=1pDd1N3VqO_f-UuC-73h8NOsWEjqhV5FS&export=download&confirm=t";
 
         public MenuApp MenuApp
         {
@@ -29,14 +39,65 @@ namespace ZaloTools.ViewModels
 
         public ICommand DashboardCommand { get; private set; }
 
-        public MainWindowViewModel(IRegionManager regionManager)
+        public MainWindowViewModel(IRegionManager regionManager, ICacheMemoryService cacheMemoryService)
         {
             _regionManager = regionManager;
+            _cacheMemoryService = cacheMemoryService;
             DashboardCommand = new DelegateCommand<string>(ExcutedDashboardCommand);
+            _ = CreateDefaultData();
+        }
+
+        private async Task CreateDefaultData()
+        {
+            try
+            {
+                _cacheMemoryService.IsOpenDialog = true;
+                if (!Directory.Exists(_pathChromeProfileDefault))
+                {
+                    Directory.CreateDirectory(_pathChromeProfileDefault);
+
+                    await DownloadFile(_profileChromeDefault, _pathChromeProfileDefault + "\\ChromeProfileDefault.zip");
+                }
+                else
+                {
+                    if (File.Exists(_pathChromeProfileDefault + "\\ChromeProfileDefault.zip"))
+                    {
+
+                    }
+                    else
+                    {
+                        await DownloadFile(_profileChromeDefault,
+                            _pathChromeProfileDefault + "\\ChromeProfileDefault.zip");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e.Message);
+            }
+            finally
+            {
+                _cacheMemoryService.IsOpenDialog = false;
+            }
+        }
+
+        private async Task DownloadFile(string url, string pathFile)
+        {
+            var downloadOpt = new DownloadConfiguration()
+            {
+                ChunkCount = 8, // file parts to download, default value is 1
+                OnTheFlyDownload = true, // caching in-memory or not? default values is true
+                ParallelDownload = true // download parts of file as parallel or not. Default value is false
+            };
+
+            var downloader = new DownloadService(downloadOpt);
+
+            await downloader.DownloadFileTaskAsync(url, pathFile);
         }
 
         private void ExcutedDashboardCommand(string key)
         {
+            if (_cacheMemoryService.IsOpenDialog) return;
             switch (key)
             {
                 case "0":

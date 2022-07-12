@@ -1,0 +1,80 @@
+﻿<UserControl
+    x:Class="ZaloTools.Views.LoginDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+    <prism:Dialog.WindowStyle>
+        <Style TargetType="Window">
+            <Setter Property="prism:Dialog.WindowStartupLocation" Value="CenterOwner" />
+            <Setter Property="ResizeMode" Value="NoResize" />
+            <Setter Property="ShowInTaskbar" Value="False" />
+            <Setter Property="SizeToContent" Value="WidthAndHeight" />
+            <Setter Property="Title" Value="{Binding Title}" />
+            <Setter Property="AllowsTransparency" Value="False" />
+        </Style>
+    </prism:Dialog.WindowStyle>
+    <Grid Width="600" Background="#fff">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        <Label
+            Grid.Row="0"
+            Margin="20,5"
+            Content="Số điện thoại"
+            FontSize="18"
+            FontWeight="Bold"
+            Foreground="#1867BE" />
+        <TextBox
+            Grid.Row="1"
+            Margin="20,5"
+            VerticalContentAlignment="Center"
+            Text="{Binding AccountZalo.PhoneNumber}" />
+        <Label
+            Grid.Row="2"
+            Margin="20,5"
+            Content="Tên zalo"
+            FontSize="18"
+            FontWeight="Bold"
+            Foreground="#1867BE" />
+        <TextBox
+            Grid.Row="3"
+            Margin="20,5"
+            VerticalContentAlignment="Center"
+            Text="{Binding AccountZalo.Name}" />
+        <Image
+            Grid.Row="4"
+            Height="250"
+            Source="{Binding QrcodeLogin}">
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Login}" Value="0">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Login}" Value="1">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Button
+            Grid.Row="5"
+            Margin="20,5"
+            Background="#fff"
+            BorderBrush="#1867BE"
+            BorderThickness="2"
+            Command="{Binding LoginCommand}"
+            Content="{Binding ContentLogin}"
+            FontSize="18"
+            FontWeight="Bold"
+            Foreground="#1867BE" />
+    </Grid>
+</UserControl>

@@ -13,6 +13,7 @@
     <None Remove="Resources\Images\ic_dashboard.png" />
     <None Remove="Resources\Images\ic_info.png" />
     <None Remove="Resources\Images\ic_login.png" />
+    <None Remove="Resources\Images\ic_logout.png" />
     <None Remove="Resources\Images\ic_message.png" />
     <None Remove="Resources\Images\ic_number_phone.png" />
     <None Remove="Resources\Images\ic_user.png" />
@@ -20,8 +21,12 @@
     <None Remove="Resources\Images\logo2.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Downloader" Version="2.3.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.7" />
     <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
-    <PackageReference Include="Syncfusion.SfTextInputLayout.WPF" Version="20.2.0.36" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.3.0" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="103.0.5060.5300" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\icon.ico">
@@ -45,6 +50,9 @@
     <Resource Include="Resources\Images\ic_login.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Images\ic_logout.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Images\ic_message.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -62,8 +70,7 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <None Update="Resources\Images\ic_logout.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <Folder Include="Database\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 </Project>
