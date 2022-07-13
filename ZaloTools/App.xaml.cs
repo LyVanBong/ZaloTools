@@ -1,10 +1,7 @@
 ﻿using Prism.Ioc;
-using System.Windows;
 using Microsoft.EntityFrameworkCore;
 using ZaloTools.Database;
-using ZaloTools.Services;
 using ZaloTools.ViewModels;
-using ZaloTools.Views;
 
 namespace ZaloTools
 {

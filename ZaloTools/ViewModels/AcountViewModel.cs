@@ -1,14 +1,4 @@
-﻿using Prism.Commands;
-using Prism.Regions;
-using Prism.Services.Dialogs;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Windows.Input;
-using ZaloTools.Models;
-using ZaloTools.Services;
-using ZaloTools.Views;
-
-namespace ZaloTools.ViewModels
+﻿namespace ZaloTools.ViewModels
 {
     public class AcountViewModel : RegionViewModelBase
     {
@@ -16,6 +6,9 @@ namespace ZaloTools.ViewModels
         private readonly ICacheMemoryService _cacheMemoryService;
         private ObservableCollection<AccountZalo> _accountZalos = new ObservableCollection<AccountZalo>();
         private readonly IDatabaseService _databaseService;
+        private readonly IChromeService _chromeService;
+        private string _lgoinZalo = "https://chat.zalo.me/";
+
 
         public ICommand LoginCommand { get; private set; }
 
@@ -24,24 +17,68 @@ namespace ZaloTools.ViewModels
             get { return _accountZalos; }
             set { _accountZalos = value; }
         }
-
-        public AcountViewModel(IDialogService dialogService, ICacheMemoryService cacheMemoryService, IDatabaseService databaseService, IRegionManager regionManager) : base(regionManager)
+        private DelegateCommand<AccountZalo> _deleteAccountZaloCommand;
+        public DelegateCommand<AccountZalo> DeleteAccountZaloCommand =>
+            _deleteAccountZaloCommand ?? (_deleteAccountZaloCommand = new DelegateCommand<AccountZalo>(ExecuteDeleteAccountZaloCommand));
+        public ICommand ReLoginAccountZaloCommand { get; private set; }
+        public ICommand CheckIboxZaloCommand { get; private set; }
+        public AcountViewModel(IDialogService dialogService, ICacheMemoryService cacheMemoryService, IDatabaseService databaseService, IRegionManager regionManager, IChromeService chromeService) : base(regionManager)
         {
             _dialogService = dialogService;
             _cacheMemoryService = cacheMemoryService;
             _databaseService = databaseService;
+            _chromeService = chromeService;
             LoginCommand = new DelegateCommand<string>(ExcuteLoginCommand);
+            ReLoginAccountZaloCommand = new DelegateCommand<AccountZalo>(ExecuteReLoginAccountZaloCommand);
+            CheckIboxZaloCommand = new DelegateCommand<AccountZalo>(ExcuteCheckIboxZaloCommand);
         }
 
+        private async void ExcuteCheckIboxZaloCommand(AccountZalo obj)
+        {
+            var drive = await _chromeService.GetChromeDriverAsync(obj.PathProfileChrome, false);
+            drive.Navigate().GoToUrl(_lgoinZalo);
+        }
+
+        private void ExecuteReLoginAccountZaloCommand(AccountZalo obj)
+        {
+            var para = new DialogParameters();
+            para.Add(nameof(AccountZalos), obj);
+            _dialogService.Show(nameof(LoginDialog), para, result =>
+            {
+                if (result == null) return;
+                if (result.Result == ButtonResult.OK)
+                {
+                    GetAccountZalo();
+                }
+            });
+        }
+
+        private void ExecuteDeleteAccountZaloCommand(AccountZalo accountZalo)
+        {
+            if (Directory.Exists(accountZalo.PathProfileChrome))
+            {
+                Directory.Delete(accountZalo.PathProfileChrome, true);
+                if (_databaseService.DeleteZalo(accountZalo))
+                {
+                    AccountZalos.Remove(accountZalo);
+                }
+            }
+        }
         public override void OnNavigatedTo(NavigationContext navigationContext)
         {
             base.OnNavigatedTo(navigationContext);
+            GetAccountZalo();
+        }
+
+        private Task GetAccountZalo()
+        {
             var data = _databaseService.GetAllZalo();
             if (data != null && data.Any() && data[0].CheckAccountZalo())
             {
                 AccountZalos.Clear();
                 AccountZalos.AddRange(data);
             }
+            return Task.CompletedTask;
         }
 
         private void ExcuteLoginCommand(string obj)
@@ -51,12 +88,7 @@ namespace ZaloTools.ViewModels
                 if (result == null) return;
                 if (result.Result == ButtonResult.OK)
                 {
-                    var data = _databaseService.GetAllZalo();
-                    if (data != null && data.Any() && data[0].CheckAccountZalo())
-                    {
-                        AccountZalos.Clear();
-                        AccountZalos.AddRange(data);
-                    }
+                    GetAccountZalo();
                 }
             });
             _cacheMemoryService.IsOpenDialog = true;

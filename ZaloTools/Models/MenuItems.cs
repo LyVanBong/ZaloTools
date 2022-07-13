@@ -1,6 +1,4 @@
-﻿using Prism.Mvvm;
-
-namespace ZaloTools.Models;
+﻿namespace ZaloTools.Models;
 
 public class MenuApp : BindableBase
 {

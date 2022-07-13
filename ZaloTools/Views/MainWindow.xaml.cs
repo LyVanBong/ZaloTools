@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using ZaloTools.ViewModels;
+﻿using ZaloTools.ViewModels;
 
 namespace ZaloTools.Views
 {

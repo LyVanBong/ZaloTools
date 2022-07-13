@@ -10,12 +10,15 @@
     <None Remove="Resources\Images\ic_add_friend.png" />
     <None Remove="Resources\Images\ic_arrow_down.png" />
     <None Remove="Resources\Images\ic_arrow_up.png" />
+    <None Remove="Resources\Images\ic_check_ibox.png" />
     <None Remove="Resources\Images\ic_dashboard.png" />
+    <None Remove="Resources\Images\ic_delete.png" />
     <None Remove="Resources\Images\ic_info.png" />
     <None Remove="Resources\Images\ic_login.png" />
     <None Remove="Resources\Images\ic_logout.png" />
     <None Remove="Resources\Images\ic_message.png" />
     <None Remove="Resources\Images\ic_number_phone.png" />
+    <None Remove="Resources\Images\ic_relogin.png" />
     <None Remove="Resources\Images\ic_user.png" />
     <None Remove="Resources\Images\logo.png" />
     <None Remove="Resources\Images\logo2.png" />
@@ -41,9 +44,11 @@
     <Resource Include="Resources\Images\ic_arrow_up.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Images\ic_check_ibox.png" />
     <Resource Include="Resources\Images\ic_dashboard.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Images\ic_delete.png" />
     <Resource Include="Resources\Images\ic_info.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -59,6 +64,7 @@
     <Resource Include="Resources\Images\ic_number_phone.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Images\ic_relogin.png" />
     <Resource Include="Resources\Images\ic_user.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

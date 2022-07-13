@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ZaloTools.Models;
 
 namespace ZaloTools.Database;
 

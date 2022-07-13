@@ -1,17 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Threading.Tasks;
-using Prism.Commands;
-using Prism.Mvvm;
-using Prism.Regions;
-using System.Windows;
-using System.Windows.Input;
-using Downloader;
-using ZaloTools.Models;
-using ZaloTools.Services;
-using ZaloTools.Views;
-
-namespace ZaloTools.ViewModels
+﻿namespace ZaloTools.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {

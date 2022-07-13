@@ -1,6 +1,4 @@
-﻿using Prism.Mvvm;
-
-namespace ZaloTools.ViewModels
+﻿namespace ZaloTools.ViewModels
 {
     public class DashboardViewModel : BindableBase
     {

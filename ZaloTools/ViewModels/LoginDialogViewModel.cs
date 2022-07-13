@@ -1,18 +1,7 @@
-﻿using OpenQA.Selenium.Chrome;
-using Prism.Commands;
-using Prism.Mvvm;
-using Prism.Services.Dialogs;
-using System;
-using System.IO;
-using System.IO.Compression;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.IO.Compression;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using OpenQA.Selenium;
 using ZaloTools.Database;
-using ZaloTools.Models;
-using ZaloTools.Services;
 
 namespace ZaloTools.ViewModels
 {
@@ -172,7 +161,10 @@ namespace ZaloTools.ViewModels
 
         public void OnDialogOpened(IDialogParameters parameters)
         {
-
+            //if (parameters != null)
+            //{
+            //    AccountZalo = parameters.GetValue<AccountZalo>(nameof(AccountZalo));
+            //}
         }
     }
 }

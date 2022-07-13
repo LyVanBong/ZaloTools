@@ -1,7 +1,4 @@
-﻿using System;
-using Prism.Mvvm;
-
-namespace ZaloTools.Models;
+﻿namespace ZaloTools.Models;
 
 public class AccountZalo : BindableBase
 {
@@ -10,7 +7,14 @@ public class AccountZalo : BindableBase
     private int _numberOfFriend;
     private string _status;
     private string _running;
+    private bool _checkZalo;
     public Guid Id { get; set; }
+    [NotMapped]
+    public bool CheckZalo
+    {
+        get => _checkZalo;
+        set => SetProperty(ref _checkZalo, value);
+    }
 
     public string Name
     {
