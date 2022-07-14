@@ -88,7 +88,7 @@
         <WrapPanel Grid.Row="1">
             <Button
                 Width="200"
-                Height="50"
+                Height="45"
                 Margin="10"
                 Background="#fff"
                 BorderBrush="#1867BE"
