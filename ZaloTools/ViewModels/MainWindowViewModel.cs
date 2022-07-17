@@ -103,9 +103,9 @@
                     else
                         MenuApp.SelectButtonMessage();
                     break;
-
                 case "3":
                     MenuApp.SelectButtonMessage(1);
+                    _regionManager.RequestNavigate(_regionNames, "/" + nameof(SendMessageToFriendsView));
                     break;
 
                 case "4":

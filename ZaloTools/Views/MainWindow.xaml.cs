@@ -1,6 +1,4 @@
-﻿using ZaloTools.ViewModels;
-
-namespace ZaloTools.Views
+﻿namespace ZaloTools.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

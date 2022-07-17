@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using ZaloTools.Database;
 
 namespace ZaloTools.Services;
 

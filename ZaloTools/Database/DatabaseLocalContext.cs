@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace ZaloTools.Database;
+﻿namespace ZaloTools.Database;
 
 public class DatabaseLocalContext : DbContext
 {

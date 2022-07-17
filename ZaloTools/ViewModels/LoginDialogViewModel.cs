@@ -1,7 +1,6 @@
 ﻿using System.IO.Compression;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using ZaloTools.Database;
 
 namespace ZaloTools.ViewModels
 {

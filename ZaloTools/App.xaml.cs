@@ -1,9 +1,4 @@
-﻿using Prism.Ioc;
-using Microsoft.EntityFrameworkCore;
-using ZaloTools.Database;
-using ZaloTools.ViewModels;
-
-namespace ZaloTools
+﻿namespace ZaloTools
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -32,6 +27,7 @@ namespace ZaloTools
             containerRegistry.RegisterForNavigation<AcountView, AcountViewModel>();
             containerRegistry.RegisterForNavigation<AboutView, AboutViewModel>();
             containerRegistry.RegisterForNavigation<ScanNumberPhoneView, ScanNumberPhoneViewModel>();
+            containerRegistry.RegisterForNavigation<SendMessageToFriendsView, SendMessageToFriendsViewModel>();
         }
     }
 }
