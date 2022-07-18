@@ -49,7 +49,6 @@
                 {
                     if (File.Exists(_pathChromeProfileDefault + "\\ChromeProfileDefault.zip"))
                     {
-
                     }
                     else
                     {
@@ -103,6 +102,7 @@
                     else
                         MenuApp.SelectButtonMessage();
                     break;
+
                 case "3":
                     MenuApp.SelectButtonMessage(1);
                     _regionManager.RequestNavigate(_regionNames, "/" + nameof(SendMessageToFriendsView));
@@ -110,6 +110,7 @@
 
                 case "4":
                     MenuApp.SelectButtonMessage(2);
+                    _regionManager.RequestNavigate(_regionNames, "/" + nameof(SendMessageByPhoneNumberView));
                     break;
 
                 case "5":

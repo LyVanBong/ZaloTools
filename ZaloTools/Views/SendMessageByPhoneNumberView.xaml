@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="ZaloTools.Views.SendMessageToFriendsView"
+    x:Class="ZaloTools.Views.SendMessageByPhoneNumberView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:prism="http://prismlibrary.com/"
@@ -34,6 +34,7 @@
             <GroupBox Grid.Row="1" Header="Setting">
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
@@ -74,8 +75,13 @@
                         Grid.Column="2"
                         Content="(Tin)" />
 
-                    <Button
+                    <CheckBox
                         Grid.Row="3"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Content="Gửi tin nhắn và kết bạn" />
+                    <Button
+                        Grid.Row="4"
                         Grid.Column="0"
                         Grid.ColumnSpan="3"
                         Content="Tạo chiến dịch" />
@@ -86,7 +92,6 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="150" />
-                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -101,18 +106,10 @@
                         Grid.Row="1"
                         Grid.Column="0"
                         Grid.ColumnSpan="2" />
-                    <Label
+                    <Button
                         Grid.Row="2"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
-                        Content="C:\Users\HopeH\Downloads\new.project.png" />
-                    <Button
-                        Grid.Row="3"
-                        Grid.Column="0"
-                        Content="Chọn ảnh" />
-                    <Button
-                        Grid.Row="3"
-                        Grid.Column="1"
                         Content="Thêm nội dung" />
                 </Grid>
             </GroupBox>
@@ -190,7 +187,7 @@
                 <ColumnDefinition Width="80" />
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="#" />
-            <Label Grid.Column="1" Content="Tên zalo" />
+            <Label Grid.Column="1" Content="Số điện thoại" />
             <Label Grid.Column="2" Content="Trạng thái" />
         </Grid>
         <ListView
@@ -251,18 +248,18 @@
             Grid.Row="3"
             Grid.Column="0"
             Grid.ColumnSpan="2"
-            Content="Cập nhật danh sách bạn bè" />
+            Content="Thêm số điện thoại" />
 
         <Button
             Grid.Row="3"
             Grid.Column="2"
             Grid.ColumnSpan="2"
-            Content="Xóa bạn bè" />
+            Content="Xóa" />
         <Label
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="5"
-            Content="Gửi tin nhắn zalo cho bạn bè"
+            Content="Gửi tin nhắn zalo theo số điện thoại"
             FontSize="25"
             FontWeight="Bold"
             Foreground="#1867BE" />

@@ -9,6 +9,7 @@ public class AccountZalo : BindableBase
     private string _running;
     private bool _checkZalo;
     public Guid Id { get; set; }
+
     [NotMapped]
     public bool CheckZalo
     {
@@ -48,6 +49,7 @@ public class AccountZalo : BindableBase
 
     public string PathProfileChrome { get; set; }
     public DateTime CreateDate { get; } = DateTime.Now;
+
     public bool CheckAccountZalo()
     {
         if (string.IsNullOrEmpty(Name) || string.IsNullOrWhiteSpace(PhoneNumber))

@@ -1,6 +1,4 @@
-﻿using Prism.Navigation;
-
-namespace ZaloTools.ViewModels
+﻿namespace ZaloTools.ViewModels
 {
     public abstract class ViewModelBase : BindableBase, IDestructible
     {

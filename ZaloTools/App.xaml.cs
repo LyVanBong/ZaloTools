@@ -28,6 +28,7 @@
             containerRegistry.RegisterForNavigation<AboutView, AboutViewModel>();
             containerRegistry.RegisterForNavigation<ScanNumberPhoneView, ScanNumberPhoneViewModel>();
             containerRegistry.RegisterForNavigation<SendMessageToFriendsView, SendMessageToFriendsViewModel>();
+            containerRegistry.RegisterForNavigation<SendMessageByPhoneNumberView, SendMessageByPhoneNumberViewModel>();
         }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System.IO.Compression;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-
-namespace ZaloTools.ViewModels
+﻿namespace ZaloTools.ViewModels
 {
     public class LoginDialogViewModel : BindableBase, IDialogAware
     {
@@ -15,6 +11,7 @@ namespace ZaloTools.ViewModels
         private int _login;
         private string _contentLogin = "Quét mã QR bằng Zalo để đăng nhập";
         private IDatabaseService _databaseService;
+
         public int Login
         {
             get { return _login; }
@@ -27,10 +24,10 @@ namespace ZaloTools.ViewModels
             set { SetProperty(ref _contentLogin, value); }
         }
 
-
         public AccountZalo AccountZalo { get; set; } = new AccountZalo();
 
         public string Title { get; } = "Đăng nhập tài khoản zalo";
+
         public event Action<IDialogResult> RequestClose;
 
         public ImageSource QrcodeLogin
@@ -38,7 +35,9 @@ namespace ZaloTools.ViewModels
             get => _qrcodeLogin;
             set => SetProperty(ref _qrcodeLogin, value);
         }
+
         private DelegateCommand _loginCommand;
+
         public DelegateCommand LoginCommand =>
             _loginCommand ?? (_loginCommand = new DelegateCommand(ExecuteLoginCommand));
 
@@ -47,6 +46,7 @@ namespace ZaloTools.ViewModels
             _chromeService = chromeService;
             _databaseService = databaseService;
         }
+
         private async void ExecuteLoginCommand()
         {
             try
@@ -155,7 +155,6 @@ namespace ZaloTools.ViewModels
 
         public void OnDialogClosed()
         {
-
         }
 
         public void OnDialogOpened(IDialogParameters parameters)

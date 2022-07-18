@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ZaloTools.Services;
+﻿namespace ZaloTools.Services;
 
 public class DatabaseService : IDatabaseService
 {

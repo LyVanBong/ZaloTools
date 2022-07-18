@@ -9,7 +9,6 @@
         private readonly IChromeService _chromeService;
         private string _lgoinZalo = "https://chat.zalo.me/";
 
-
         public ICommand LoginCommand { get; private set; }
 
         public ObservableCollection<AccountZalo> AccountZalos
@@ -17,11 +16,15 @@
             get { return _accountZalos; }
             set { _accountZalos = value; }
         }
+
         private DelegateCommand<AccountZalo> _deleteAccountZaloCommand;
+
         public DelegateCommand<AccountZalo> DeleteAccountZaloCommand =>
             _deleteAccountZaloCommand ?? (_deleteAccountZaloCommand = new DelegateCommand<AccountZalo>(ExecuteDeleteAccountZaloCommand));
+
         public ICommand ReLoginAccountZaloCommand { get; private set; }
         public ICommand CheckIboxZaloCommand { get; private set; }
+
         public AcountViewModel(IDialogService dialogService, ICacheMemoryService cacheMemoryService, IDatabaseService databaseService, IRegionManager regionManager, IChromeService chromeService) : base(regionManager)
         {
             _dialogService = dialogService;
@@ -64,6 +67,7 @@
                 }
             }
         }
+
         public override void OnNavigatedTo(NavigationContext navigationContext)
         {
             base.OnNavigatedTo(navigationContext);

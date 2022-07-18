@@ -1,6 +1,4 @@
-﻿using System.Windows.Controls;
-
-namespace ZaloTools.Views
+﻿namespace ZaloTools.Views
 {
     /// <summary>
     /// Interaction logic for SendMessageToFriendsView

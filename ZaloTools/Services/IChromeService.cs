@@ -9,12 +9,14 @@ public interface IChromeService
     /// <param name="webElement"></param>
     /// <returns></returns>
     byte[] TakesScreenshot(ChromeDriver chromeDriver, IWebElement webElement);
+
     /// <summary>
     /// Đăng nhập vào zalo
     /// </summary>
     /// <param name="chromeDriver"></param>
     /// <returns></returns>
     Task<bool> CheckLoginZaloAsync(ChromeDriver chromeDriver);
+
     /// <summary>
     /// Mở chrome driver
     /// </summary>

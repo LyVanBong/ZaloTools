@@ -254,7 +254,7 @@
                                 Foreground="#fff" />
                         </StackPanel>
                     </Button>
-                    <Button
+                    <!--<Button
                         Height="50"
                         Margin="10,0,0,0"
                         Padding="0"
@@ -286,7 +286,7 @@
                                 FontWeight="Bold"
                                 Foreground="#fff" />
                         </StackPanel>
-                    </Button>
+                    </Button>-->
                 </StackPanel>
                 <!--  Add friend  -->
                 <Button

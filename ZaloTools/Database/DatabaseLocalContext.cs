@@ -3,6 +3,7 @@
 public class DatabaseLocalContext : DbContext
 {
     public DbSet<AccountZalo> AccountZalos { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlite("Data Source=ZaloToolDb.db");
