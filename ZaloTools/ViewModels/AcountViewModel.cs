@@ -5,7 +5,7 @@
         private readonly IDialogService _dialogService;
         private readonly ICacheMemoryService _cacheMemoryService;
         private ObservableCollection<AccountZalo> _accountZalos = new ObservableCollection<AccountZalo>();
-        private readonly IDatabaseService _databaseService;
+        private readonly IAccountZaloRepository _accountZaloRepository;
         private readonly IChromeService _chromeService;
         private string _lgoinZalo = "https://chat.zalo.me/";
 
@@ -25,11 +25,11 @@
         public ICommand ReLoginAccountZaloCommand { get; private set; }
         public ICommand CheckIboxZaloCommand { get; private set; }
 
-        public AcountViewModel(IDialogService dialogService, ICacheMemoryService cacheMemoryService, IDatabaseService databaseService, IRegionManager regionManager, IChromeService chromeService) : base(regionManager)
+        public AcountViewModel(IDialogService dialogService, ICacheMemoryService cacheMemoryService, IAccountZaloRepository accountZaloRepository, IRegionManager regionManager, IChromeService chromeService) : base(regionManager)
         {
             _dialogService = dialogService;
             _cacheMemoryService = cacheMemoryService;
-            _databaseService = databaseService;
+            _accountZaloRepository = accountZaloRepository;
             _chromeService = chromeService;
             LoginCommand = new DelegateCommand<string>(ExcuteLoginCommand);
             ReLoginAccountZaloCommand = new DelegateCommand<AccountZalo>(ExecuteReLoginAccountZaloCommand);
@@ -61,7 +61,7 @@
             if (Directory.Exists(accountZalo.PathProfileChrome))
             {
                 Directory.Delete(accountZalo.PathProfileChrome, true);
-                if (_databaseService.DeleteZalo(accountZalo))
+                if (_accountZaloRepository.DeleteZalo(accountZalo))
                 {
                     AccountZalos.Remove(accountZalo);
                 }
@@ -76,7 +76,7 @@
 
         private Task GetAccountZalo()
         {
-            var data = _databaseService.GetAllZalo();
+            var data = _accountZaloRepository.GetAllZalo();
             if (data != null && data.Any() && data[0].CheckAccountZalo())
             {
                 AccountZalos.Clear();

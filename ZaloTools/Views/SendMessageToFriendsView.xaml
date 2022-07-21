@@ -16,8 +16,8 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="130" />
-            <ColumnDefinition Width="130" />
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition Width="80" />
             <ColumnDefinition Width="100" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
@@ -285,7 +285,8 @@
         <TextBox
             Grid.Row="1"
             Grid.Column="1"
-            Grid.ColumnSpan="3" />
+            Grid.ColumnSpan="3"
+            VerticalContentAlignment="Center" />
         <Label
             Grid.Row="2"
             Grid.Column="0"
@@ -293,10 +294,29 @@
         <ComboBox
             Grid.Row="2"
             Grid.Column="1"
-            Grid.ColumnSpan="2" />
+            Grid.ColumnSpan="2"
+            ItemsSource="{Binding AccountZalos}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding PhoneNumber}" />
+                        <Label HorizontalAlignment="Center" Content=":" />
+                        <Label Content="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
         <Button
             Grid.Row="2"
             Grid.Column="3"
+            Command="{Binding UpdateAccountZaloCommand}"
             Content="Cập nhật" />
+        <Grid.Resources>
+            <ResourceDictionary>
+                <Style TargetType="TextBox">
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                </Style>
+            </ResourceDictionary>
+        </Grid.Resources>
     </Grid>
 </UserControl>

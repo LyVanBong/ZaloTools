@@ -1,6 +1,6 @@
 ﻿namespace ZaloTools.Services;
 
-public interface IDatabaseService
+public interface IAccountZaloRepository
 {
     /// <summary>
     /// Thêm tài khoản zalo

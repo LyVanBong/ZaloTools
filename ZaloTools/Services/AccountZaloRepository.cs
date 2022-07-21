@@ -1,6 +1,6 @@
 ﻿namespace ZaloTools.Services;
 
-public class AccountZaloRepository : IDatabaseService
+public class AccountZaloRepository : IAccountZaloRepository
 {
     private DatabaseLocalContext _localContext;
 

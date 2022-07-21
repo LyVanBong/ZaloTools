@@ -10,7 +10,7 @@
 
         private int _login;
         private string _contentLogin = "Quét mã QR bằng Zalo để đăng nhập";
-        private IDatabaseService _databaseService;
+        private IAccountZaloRepository _accountZaloRepository;
 
         public int Login
         {
@@ -41,10 +41,10 @@
         public DelegateCommand LoginCommand =>
             _loginCommand ?? (_loginCommand = new DelegateCommand(ExecuteLoginCommand));
 
-        public LoginDialogViewModel(IChromeService chromeService, DatabaseLocalContext databaseLocalContext, IDatabaseService databaseService)
+        public LoginDialogViewModel(IChromeService chromeService, DatabaseLocalContext databaseLocalContext, IAccountZaloRepository accountZaloRepository)
         {
             _chromeService = chromeService;
-            _databaseService = databaseService;
+            _accountZaloRepository = accountZaloRepository;
         }
 
         private async void ExecuteLoginCommand()
@@ -128,7 +128,7 @@
                 if (login)
                 {
                     AccountZalo.Status = "Đã đăng nhập";
-                    _databaseService.AddZalo(AccountZalo);
+                    _accountZaloRepository.AddZalo(AccountZalo);
                     MessageBox.Show("Đăng nhập tài khoản zalo thành công");
                     _chromeDriver?.Close();
                     RequestClose(new DialogResult(ButtonResult.OK));

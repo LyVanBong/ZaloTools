@@ -1,4 +1,6 @@
-﻿namespace ZaloTools.Models;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace ZaloTools.Models;
 
 public class AccountZalo : BindableBase
 {

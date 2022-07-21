@@ -17,7 +17,7 @@
             containerRegistry.RegisterInstance(optionsBuilder.Options);
 
             containerRegistry.RegisterScoped<IChromeService, ChromeService>();
-            containerRegistry.RegisterScoped<IDatabaseService, AccountZaloRepository>();
+            containerRegistry.RegisterScoped<IAccountZaloRepository, AccountZaloRepository>();
             containerRegistry.RegisterScoped<IMessagesFriendsRepository, MessagesFriendsRepository>();
 
             containerRegistry.RegisterSingleton<ICacheMemoryService, CacheMemoryService>();
