@@ -1,10 +1,10 @@
 ﻿namespace ZaloTools.Services;
 
-public class DatabaseService : IDatabaseService
+public class AccountZaloRepository : IDatabaseService
 {
     private DatabaseLocalContext _localContext;
 
-    public DatabaseService(DatabaseLocalContext localContext)
+    public AccountZaloRepository(DatabaseLocalContext localContext)
     {
         _localContext = localContext;
         _localContext.Database.EnsureCreated();

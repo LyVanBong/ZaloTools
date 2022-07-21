@@ -1,5 +1,15 @@
 // Global using directives
 
+global using Downloader;
+global using Microsoft.EntityFrameworkCore;
+global using OpenQA.Selenium;
+global using OpenQA.Selenium.Chrome;
+global using Prism.Commands;
+global using Prism.Ioc;
+global using Prism.Mvvm;
+global using Prism.Navigation;
+global using Prism.Regions;
+global using Prism.Services.Dialogs;
 global using System;
 global using System.Collections.Generic;
 global using System.Collections.ObjectModel;
@@ -13,16 +23,6 @@ global using System.Windows.Controls;
 global using System.Windows.Input;
 global using System.Windows.Media;
 global using System.Windows.Media.Imaging;
-global using Downloader;
-global using Microsoft.EntityFrameworkCore;
-global using OpenQA.Selenium;
-global using OpenQA.Selenium.Chrome;
-global using Prism.Commands;
-global using Prism.Ioc;
-global using Prism.Mvvm;
-global using Prism.Navigation;
-global using Prism.Regions;
-global using Prism.Services.Dialogs;
 global using ZaloTools.Database;
 global using ZaloTools.Models;
 global using ZaloTools.Services;

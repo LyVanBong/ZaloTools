@@ -10,7 +10,6 @@ public class AccountZalo : BindableBase
     private bool _checkZalo;
     public Guid Id { get; set; }
 
-    [NotMapped]
     public bool CheckZalo
     {
         get => _checkZalo;

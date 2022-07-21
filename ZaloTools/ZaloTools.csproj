@@ -77,6 +77,5 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Database\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 </Project>
