@@ -3,6 +3,7 @@
     public class RegionViewModelBase : ViewModelBase, INavigationAware, IConfirmNavigationRequest
     {
         protected IRegionManager RegionManager { get; private set; }
+        protected bool IsBusy { get; set; }
 
         public RegionViewModelBase(IRegionManager regionManager)
         {

@@ -211,34 +211,18 @@
             Grid.Column="0"
             Grid.ColumnSpan="4"
             HorizontalContentAlignment="Stretch"
-            ItemsSource="{Binding AccountZalos}">
+            ItemsSource="{Binding Friends}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid HorizontalAlignment="Stretch">
                         <Grid.ContextMenu>
                             <ContextMenu>
                                 <MenuItem
-                                    Command="{Binding Source={x:Reference ListAccountZalo}, Path=DataContext.DeleteAccountZaloCommand}"
+                                    Command="{Binding Source={x:Reference ListAccountZalo}, Path=DataContext.DeleteFriendZaloCommand}"
                                     CommandParameter="{Binding .}"
                                     Header="Xóa">
                                     <MenuItem.Icon>
                                         <Image Source="../Resources/Images/ic_delete.png" />
-                                    </MenuItem.Icon>
-                                </MenuItem>
-                                <!--<MenuItem
-                                    Command="{Binding Source={x:Reference ListAccountZalo}, Path=DataContext.ReLoginAccountZaloCommand}"
-                                    CommandParameter="{Binding .}"
-                                    Header="Đăng nhập lại">
-                                    <MenuItem.Icon>
-                                        <Image Source="../Resources/Images/ic_relogin.png" />
-                                    </MenuItem.Icon>
-                                </MenuItem>-->
-                                <MenuItem
-                                    Command="{Binding Source={x:Reference ListAccountZalo}, Path=DataContext.CheckIboxZaloCommand}"
-                                    CommandParameter="{Binding .}"
-                                    Header="Kiểm tra tin nhắn">
-                                    <MenuItem.Icon>
-                                        <Image Source="../Resources/Images/ic_check_ibox.png" />
                                     </MenuItem.Icon>
                                 </MenuItem>
                             </ContextMenu>
@@ -251,9 +235,9 @@
                         <CheckBox
                             Grid.Column="0"
                             VerticalAlignment="Center"
-                            IsChecked="{Binding CheckZalo}" />
-                        <Label Grid.Column="1" Content="{Binding PhoneNumber}" />
-                        <Label Grid.Column="2" Content="{Binding Name}" />
+                            IsChecked="{Binding IsSelected}" />
+                        <Label Grid.Column="1" Content="{Binding Name}" />
+                        <Label Grid.Column="2" Content="{Binding Status}" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -263,12 +247,15 @@
             Grid.Row="3"
             Grid.Column="0"
             Grid.ColumnSpan="2"
+            Command="{Binding UpdateFriendZaloCommand}"
+            CommandParameter="{Binding Source={x:Reference Accounts}, Path=SelectedItem}"
             Content="Cập nhật danh sách bạn bè" />
 
         <Button
             Grid.Row="3"
             Grid.Column="2"
             Grid.ColumnSpan="2"
+            Command="{Binding DeleteFriendZaloCommand}"
             Content="Xóa bạn bè" />
         <Label
             Grid.Row="0"
@@ -286,12 +273,14 @@
             Grid.Row="1"
             Grid.Column="1"
             Grid.ColumnSpan="3"
-            VerticalContentAlignment="Center" />
+            VerticalContentAlignment="Center"
+            Text="{Binding MessagesFriends.Name}" />
         <Label
             Grid.Row="2"
             Grid.Column="0"
             Content="Chọn tài khoản" />
         <ComboBox
+            x:Name="Accounts"
             Grid.Row="2"
             Grid.Column="1"
             Grid.ColumnSpan="2"
