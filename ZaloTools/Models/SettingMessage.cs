@@ -3,7 +3,7 @@
 public class SettingMessage : BindableBase
 {
     public Guid Id { get; set; } = Guid.NewGuid();
-    private int _timeDelay;
+    private int _timeDelay = 10;
 
     public int TimeDelay
     {
@@ -11,7 +11,7 @@ public class SettingMessage : BindableBase
         set { SetProperty(ref _timeDelay, value); }
     }
 
-    private int _numberOfDelayedMessages;
+    private int _numberOfDelayedMessages = 100;
 
     public int NumberOfDelayedMessages
     {
@@ -19,7 +19,7 @@ public class SettingMessage : BindableBase
         set { SetProperty(ref _numberOfDelayedMessages, value); }
     }
 
-    private int _delayAfterSendingMessage;
+    private int _delayAfterSendingMessage = 120;
 
     public int DelayAfterSendingMessage
     {

@@ -11,6 +11,13 @@
         private int _login;
         private string _contentLogin = "Quét mã QR bằng Zalo để đăng nhập";
         private IAccountZaloRepository _accountZaloRepository;
+        private bool _isBusy;
+
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set { SetProperty(ref _isBusy, value); }
+        }
 
         public int Login
         {
@@ -49,6 +56,8 @@
 
         private async void ExecuteLoginCommand()
         {
+            if (IsBusy) return;
+            IsBusy = true;
             try
             {
                 if (AccountZalo.CheckAccountZalo())
@@ -58,6 +67,7 @@
                         Login = 0;
                         ContentLogin = "Quét mã QR bằng Zalo để đăng nhập";
                         await CheckLogin(_chromeDriver);
+                        IsBusy = false;
                         return;
                     }
                     ContentLogin = "Đang tải mã QR vui lòng đợi";
@@ -80,6 +90,7 @@
                                 {
                                     Login = 1;
                                     ContentLogin = "Tiếp tục";
+                                    IsBusy = false;
                                 }
                             }
                             else
@@ -107,6 +118,7 @@
                 MessageBox.Show("Lỗi vui lòng thử lại");
                 _chromeDriver?.Close();
                 RequestClose(null);
+                IsBusy = false;
             }
         }
 
