@@ -1,12 +1,17 @@
 ﻿namespace ZaloTools.Models;
 
-public class MessagesFriends : BindableBase
+public class MessagesFriend : BindableBase
 {
     public Guid Id { get; set; } = Guid.NewGuid();
     private string _name;
     private bool _isSelected;
     private string _status = "New";
-
+    private int _messageType;
+    public int MessageType
+    {
+        get { return _messageType; }
+        set { SetProperty(ref _messageType, value); }
+    }
     public string Status
     {
         get { return _status; }
@@ -36,5 +41,5 @@ public class MessagesFriends : BindableBase
     public virtual ObservableCollection<Friend> Friends { get; set; }
     public virtual ObservableCollection<ContentMessage> Messages { get; set; }
     public virtual SettingMessage SettingMessage { get; set; }
-    public Guid AccountZaloId { get; set; }
+    public Guid AccountZalo { get; set; }
 }

@@ -16,35 +16,35 @@
             return _database.MessagesFriends.Any(x => x.Id == Id);
         }
 
-        public bool Delete(MessagesFriends messagesFriends)
+        public bool Delete(MessagesFriend messagesFriend)
         {
-            _database.MessagesFriends.Remove(messagesFriends);
+            _database.MessagesFriends.Remove(messagesFriend);
             var delete = _database.SaveChanges();
             return delete > 0;
         }
 
-        public bool Add(MessagesFriends messagesFriends)
+        public bool Add(MessagesFriend messagesFriend)
         {
-            _database.MessagesFriends.Add(messagesFriends);
+            _database.MessagesFriends.Add(messagesFriend);
             var insert = _database.SaveChanges();
             return insert > 0;
         }
 
-        public bool Update(MessagesFriends messagesFriends)
+        public bool Update(MessagesFriend messagesFriend)
         {
-            _database.MessagesFriends.Update(messagesFriends);
+            _database.MessagesFriends.Update(messagesFriend);
             var update = _database.SaveChanges();
             return update > 0;
         }
 
-        public MessagesFriends Get(Guid Id)
+        public MessagesFriend Get(Guid Id)
         {
             return _database.MessagesFriends?.FirstOrDefault(x => x.Id == Id);
         }
 
-        public List<MessagesFriends> GetAll()
+        public List<MessagesFriend> GetAll(int messageType)
         {
-            return _database.MessagesFriends?.ToList();
+            return _database.MessagesFriends?.Where(x => x.MessageType == messageType)?.ToList();
         }
     }
 }

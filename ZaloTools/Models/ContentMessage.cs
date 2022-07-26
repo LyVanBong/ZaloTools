@@ -49,7 +49,7 @@ public class ContentMessage : BindableBase
         set { SetProperty(ref _pathImage, value); }
     }
 
-    public virtual MessagesFriends MessagesFriends { get; set; }
+    public virtual MessagesFriend MessagesFriend { get; set; }
 
     /// <summary>
     /// kiểm tra nội dung tin nhắn

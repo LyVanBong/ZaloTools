@@ -5,7 +5,7 @@
         private readonly IMessagesFriendsRepository _messagesFriendsRepository;
         private readonly IAccountZaloRepository _accountZaloRepository;
         private ObservableCollection<AccountZalo> _accountZalos = new ObservableCollection<AccountZalo>();
-        private MessagesFriends _messagesFriend = new MessagesFriends();
+        private MessagesFriend _messagesFriend = new MessagesFriend();
         private readonly IChromeService _chromeService;
         private string _lgoinZalo = "https://chat.zalo.me/";
         private ObservableCollection<Friend> _friends = new ObservableCollection<Friend>();
@@ -14,9 +14,9 @@
         private ContentMessage _contentMessage = new ContentMessage();
         private SettingMessage _settingMessage = new SettingMessage();
 
-        private ObservableCollection<MessagesFriends> _messagesFriends = new ObservableCollection<MessagesFriends>();
-
-        public ObservableCollection<MessagesFriends> MessagesFriends
+        private ObservableCollection<MessagesFriend> _messagesFriends = new ObservableCollection<MessagesFriend>();
+        public AccountZalo AccountZalo { get; set; } = new AccountZalo();
+        public ObservableCollection<MessagesFriend> MessagesFriends
         {
             get { return _messagesFriends; }
             set { SetProperty(ref _messagesFriends, value); }
@@ -46,7 +46,7 @@
             set { SetProperty(ref _friends, value); }
         }
 
-        public MessagesFriends MessagesFriend
+        public MessagesFriend MessagesFriend
         {
             get { return _messagesFriend; }
             set { SetProperty(ref _messagesFriend, value); }
@@ -86,8 +86,10 @@
                 MessagesFriend.Messages = ContentMessages;
                 MessagesFriend.SettingMessage = SettingMessage;
                 MessagesFriend.NumberFriends = Friends.Count;
+                MessagesFriend.MessageType = 0;
+                MessagesFriend.AccountZalo = AccountZalo.Id;
                 _messagesFriendsRepository.Add(MessagesFriend);
-                MessagesFriends = new ObservableCollection<MessagesFriends>(_messagesFriendsRepository.GetAll());
+                MessagesFriends = new ObservableCollection<MessagesFriend>(_messagesFriendsRepository.GetAll(0));
                 Friends = new ObservableCollection<Friend>();
                 ContentMessages = new ObservableCollection<ContentMessage>();
                 SettingMessage = new SettingMessage();
@@ -265,8 +267,8 @@
         {
             base.OnNavigatedTo(navigationContext);
             AccountZalos = new ObservableCollection<AccountZalo>(_accountZaloRepository.GetAllZalo());
-            MessagesFriends = new ObservableCollection<MessagesFriends>(_messagesFriendsRepository.GetAll());
-            MessagesFriend.Name = "Gửi tin nhắn cho bạn bè " + DateTime.Now.ToString("dd/MM/yyyy");
+            MessagesFriends = new ObservableCollection<MessagesFriend>(_messagesFriendsRepository.GetAll(0));
+            MessagesFriend.Name = "Gửi tin nhắn cho bạn bè: " + DateTime.Now.ToString("g");
         }
     }
 }

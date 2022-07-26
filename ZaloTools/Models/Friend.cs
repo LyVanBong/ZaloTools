@@ -27,5 +27,5 @@ public class Friend : BindableBase
         set { SetProperty(ref _status, value); }
     }
 
-    public virtual MessagesFriends MessagesFriends { get; set; }
+    public virtual MessagesFriend MessagesFriend { get; set; }
 }

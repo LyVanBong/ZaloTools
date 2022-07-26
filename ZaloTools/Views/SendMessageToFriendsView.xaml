@@ -1,8 +1,8 @@
 ﻿<UserControl
     x:Class="ZaloTools.Views.SendMessageToFriendsView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:prism="http://prismlibrary.com/"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
     prism:ViewModelLocator.AutoWireViewModel="True"
     Background="#fff">
     <Grid>
@@ -16,8 +16,8 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="80" />
-            <ColumnDefinition Width="80" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="100" />
             <ColumnDefinition Width="100" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
@@ -312,7 +312,8 @@
             Grid.Row="2"
             Grid.Column="1"
             Grid.ColumnSpan="2"
-            ItemsSource="{Binding AccountZalos}">
+            ItemsSource="{Binding AccountZalos}"
+            SelectedItem="{Binding AccountZalo}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

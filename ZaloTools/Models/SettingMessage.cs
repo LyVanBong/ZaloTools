@@ -4,7 +4,12 @@ public class SettingMessage : BindableBase
 {
     public Guid Id { get; set; } = Guid.NewGuid();
     private int _timeDelay = 10;
-
+    private bool _isAddFriend;
+    public bool IsAddFriend
+    {
+        get { return _isAddFriend; }
+        set { SetProperty(ref _isAddFriend, value); }
+    }
     public int TimeDelay
     {
         get { return _timeDelay; }
@@ -38,5 +43,5 @@ public class SettingMessage : BindableBase
     public Guid MessagesFriendsId { get; set; }
 
     [ForeignKey(nameof(MessagesFriendsId))]
-    public virtual MessagesFriends MessagesFriends { get; set; }
+    public virtual MessagesFriend MessagesFriend { get; set; }
 }

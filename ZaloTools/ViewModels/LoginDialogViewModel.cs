@@ -12,6 +12,7 @@
         private string _contentLogin = "Quét mã QR bằng Zalo để đăng nhập";
         private IAccountZaloRepository _accountZaloRepository;
         private bool _isBusy;
+        private ICacheMemoryService _cacheMemoryService;
 
         public bool IsBusy
         {
@@ -48,10 +49,11 @@
         public DelegateCommand LoginCommand =>
             _loginCommand ?? (_loginCommand = new DelegateCommand(ExecuteLoginCommand));
 
-        public LoginDialogViewModel(IChromeService chromeService, DatabaseLocalContext databaseLocalContext, IAccountZaloRepository accountZaloRepository)
+        public LoginDialogViewModel(IChromeService chromeService, DatabaseLocalContext databaseLocalContext, IAccountZaloRepository accountZaloRepository, ICacheMemoryService cacheMemoryService)
         {
             _chromeService = chromeService;
             _accountZaloRepository = accountZaloRepository;
+            _cacheMemoryService = cacheMemoryService;
         }
 
         private async void ExecuteLoginCommand()
@@ -167,6 +169,7 @@
 
         public void OnDialogClosed()
         {
+            _cacheMemoryService.IsOpenDialog = false;
         }
 
         public void OnDialogOpened(IDialogParameters parameters)

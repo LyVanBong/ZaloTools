@@ -12,34 +12,35 @@ public interface IMessagesFriendsRepository
     /// <summary>
     /// Xóa chiến dịch
     /// </summary>
-    /// <param name="messagesFriends"></param>
+    /// <param name="messagesFriend"></param>
     /// <returns></returns>
-    bool Delete(MessagesFriends messagesFriends);
+    bool Delete(MessagesFriend messagesFriend);
 
     /// <summary>
     /// Thêm chiến dịch
     /// </summary>
-    /// <param name="messagesFriends"></param>
+    /// <param name="messagesFriend"></param>
     /// <returns></returns>
-    bool Add(MessagesFriends messagesFriends);
+    bool Add(MessagesFriend messagesFriend);
 
     /// <summary>
     /// Cập nhật chiến dịch
     /// </summary>
-    /// <param name="messagesFriends"></param>
+    /// <param name="messagesFriend"></param>
     /// <returns></returns>
-    bool Update(MessagesFriends messagesFriends);
+    bool Update(MessagesFriend messagesFriend);
 
     /// <summary>
     /// Tìm 1 chiến dịch cụ thể
     /// </summary>
     /// <param name="Id"></param>
     /// <returns></returns>
-    MessagesFriends Get(Guid Id);
+    MessagesFriend Get(Guid Id);
 
     /// <summary>
     /// Lấy toàn bộ chiến dịch
     /// </summary>
+    /// <param name="messageType"></param>
     /// <returns></returns>
-    List<MessagesFriends> GetAll();
+    List<MessagesFriend> GetAll(int messageType);
 }
