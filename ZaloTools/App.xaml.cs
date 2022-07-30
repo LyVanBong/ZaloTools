@@ -24,6 +24,7 @@
 
             containerRegistry.RegisterDialog<LoginDialog, LoginDialogViewModel>();
 
+            containerRegistry.RegisterForNavigation<MakeFriendsByPhoneNumberView, MakeFriendsByPhoneNumberViewModel>();
             containerRegistry.RegisterForNavigation<DashboardView, DashboardViewModel>();
             containerRegistry.RegisterForNavigation<AcountView, AcountViewModel>();
             containerRegistry.RegisterForNavigation<AboutView, AboutViewModel>();

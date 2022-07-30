@@ -28,6 +28,7 @@ global using System.Windows.Controls;
 global using System.Windows.Input;
 global using System.Windows.Media;
 global using System.Windows.Media.Imaging;
+global using ImTools;
 global using ZaloTools.Database;
 global using ZaloTools.Models;
 global using ZaloTools.Services;

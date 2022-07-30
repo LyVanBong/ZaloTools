@@ -1,6 +1,6 @@
 ﻿namespace ZaloTools.ViewModels
 {
-    public class SendMessageByPhoneNumberViewModel : RegionViewModelBase
+    public class MakeFriendsByPhoneNumberViewModel : RegionViewModelBase
     {
         private readonly IAccountZaloRepository _accountZaloRepository;
         private ObservableCollection<AccountZalo> _accountZalos = new ObservableCollection<AccountZalo>();
@@ -54,7 +54,7 @@
         public ICommand UpdateAccountZaloCommand { get; private set; }
         public ICommand AddContentMessageCommand { get; private set; }
         public ICommand CreateMessageToFriendCommand { get; private set; }
-        public SendMessageByPhoneNumberViewModel(IRegionManager regionManager, IAccountZaloRepository accountZaloRepository, IMessagesFriendsRepository messagesFriendsRepository) : base(regionManager)
+        public MakeFriendsByPhoneNumberViewModel(IRegionManager regionManager, IAccountZaloRepository accountZaloRepository, IMessagesFriendsRepository messagesFriendsRepository) : base(regionManager)
         {
             _accountZaloRepository = accountZaloRepository;
             _messagesFriendsRepository = messagesFriendsRepository;
@@ -75,10 +75,10 @@
                 MessagesFriend.Messages = ContentMessages;
                 MessagesFriend.SettingMessage = SettingMessage;
                 MessagesFriend.NumberFriends = Friends.Count;
-                MessagesFriend.MessageType = 1;
+                MessagesFriend.MessageType = 2;
                 MessagesFriend.AccountZalo = AccountZalo.Id;
                 _messagesFriendsRepository.Add(MessagesFriend);
-                MessagesFriends = new ObservableCollection<MessagesFriend>(_messagesFriendsRepository.GetAll(1));
+                MessagesFriends = new ObservableCollection<MessagesFriend>(_messagesFriendsRepository.GetAll(2));
                 Friends = new ObservableCollection<Friend>();
                 ContentMessages = new ObservableCollection<ContentMessage>();
                 SettingMessage = new SettingMessage();
@@ -185,7 +185,7 @@
         {
             base.OnNavigatedTo(navigationContext);
             AccountZalos = new ObservableCollection<AccountZalo>(_accountZaloRepository.GetAllZalo());
-            MessagesFriends = new ObservableCollection<MessagesFriend>(_messagesFriendsRepository.GetAll(1));
+            MessagesFriends = new ObservableCollection<MessagesFriend>(_messagesFriendsRepository.GetAll(2));
             MessagesFriend.Name = "Gửi tin nhắn bằng số điện thoại: " + DateTime.Now.ToString("g");
         }
     }

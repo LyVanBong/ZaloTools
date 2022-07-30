@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="ZaloTools.Views.SendMessageByPhoneNumberView"
+    x:Class="ZaloTools.Views.MakeFriendsByPhoneNumberView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:prism="http://prismlibrary.com/"
@@ -84,11 +84,11 @@
                     <Label
                         Grid.Row="1"
                         Grid.Column="2"
-                        Content="(Tin/Giây)" />
+                        Content="(SĐT/Giây)" />
                     <Label
                         Grid.Row="2"
                         Grid.Column="0"
-                        Content="Giới hạn số tin muốn gửi" />
+                        Content="Giới hạn lời mời kết bạn" />
 
                     <TextBox
                         Grid.Row="2"
@@ -98,7 +98,7 @@
                     <Label
                         Grid.Row="2"
                         Grid.Column="2"
-                        Content="(Tin)" />
+                        Content="(SĐT)" />
 
                     <!--<CheckBox
                         Grid.Row="3"
@@ -114,7 +114,7 @@
                         Content="Tạo chiến dịch" />
                 </Grid>
             </GroupBox>
-            <GroupBox Grid.Row="0" Header="Nội dung tin nhắn">
+            <GroupBox Grid.Row="0" Header="Nội dung lời nhắn">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -259,7 +259,7 @@
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="5"
-            Content="Gửi tin nhắn zalo theo số điện thoại"
+            Content="Gửi lời mời kết bạn bắng số điện thoại"
             FontSize="25"
             FontWeight="Bold"
             Foreground="#1867BE" />

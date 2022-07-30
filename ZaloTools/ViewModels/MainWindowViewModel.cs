@@ -133,6 +133,7 @@
 
                 case "9":
                     MenuApp.SelectButtonAddFriend(3);
+                    _regionManager.RequestNavigate(_regionNames, "/" + nameof(MakeFriendsByPhoneNumberView));
                     break;
 
                 case "10":
