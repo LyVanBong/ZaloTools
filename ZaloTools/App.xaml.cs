@@ -20,6 +20,7 @@
             containerRegistry.RegisterScoped<IAccountZaloRepository, AccountZaloRepository>();
             containerRegistry.RegisterScoped<IMessagesFriendsRepository, MessagesFriendsRepository>();
 
+            containerRegistry.RegisterSingleton<IBackgroundWorkerService, BackgroundWorkerService>();
             containerRegistry.RegisterSingleton<ICacheMemoryService, CacheMemoryService>();
 
             containerRegistry.RegisterDialog<LoginDialog, LoginDialogViewModel>();

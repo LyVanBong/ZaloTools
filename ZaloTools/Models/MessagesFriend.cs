@@ -37,7 +37,7 @@ public class MessagesFriend : BindableBase
         get { return _numberFriends; }
         set { SetProperty(ref _numberFriends, value); }
     }
-
+    public DateTime CreateDate { get; } = DateTime.Now;
     public virtual ObservableCollection<Friend> Friends { get; set; }
     public virtual ObservableCollection<ContentMessage> Messages { get; set; }
     public virtual SettingMessage SettingMessage { get; set; }
